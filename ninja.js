@@ -9,15 +9,31 @@ class Ninja {
         console.log(this.name);
     }
     showStats(){
-        console.log(this.health, this.speed, this.strength);
+        console.log(`Name: ${this.name}  Health: ${this.health} Speed: ${this.speed} Strength: ${this.strength }`);
     }
     drinkSake(){
         this.health+= 10;
     }
 }
+class Sensei extends Ninja{
+    constructor(name){
+        super(name, 200);
+        this.speed = 10;
+        this.strength = 10;
+        this.wisdom = 10;
+    }
+    speakWisdom(){
+        const wisdomspeak = super.drinkSake();
+        console.log("What one programmer can do in one month, two programmers can do in two months.")
+    }
+}
+
+
 const Todd = new Ninja("Todd", 100);
 Todd.sayName();
 Todd.showStats();
 Todd.drinkSake();
 Todd.showStats();
-
+const superSensei = new Sensei("Master Splinter");
+superSensei.speakWisdom();
+superSensei.showStats();
